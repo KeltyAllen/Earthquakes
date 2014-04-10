@@ -1,0 +1,79 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type
+2014-03-18T03:12:13.400Z,37.6745,-122.5818,0.3,2.3,Md,,201.6,0.34135981,0.36,nc,nc72187216,2014-03-18T19:18:06.449Z,"8km W of Broadmoor, California",earthquake
+2014-03-04T13:20:41.600Z,37.7075,-122.5355,9.3,1.9,Md,,100.8,0.03593261,0.07,nc,nc72178846,2014-03-08T03:57:09.534Z,"5km WNW of Broadmoor, California",earthquake
+2014-02-27T23:37:50.700Z,37.7912,-122.5858,9.3,1.9,Md,,93.6,0.05389892,0.05,nc,nc72176196,2014-03-24T23:06:29.000Z,"10km SSW of Tamalpais-Homestead Valley, California",earthquake
+2014-01-09T05:01:45.800Z,37.809,-122.6033,7.1,1.9,Md,,90,0.05389892,0.09,nc,nc72139156,2014-01-09T07:50:06.613Z,"9km SW of Tamalpais-Homestead Valley, California",earthquake
+2013-11-12T23:40:30.500Z,37.6588,-122.4918,10.1,2.8,Md,,90,0.02694946,0.07,nc,nc72106531,2014-03-21T04:33:18.717Z,"3km SSW of Broadmoor, California",earthquake
+2013-11-12T23:39:40.500Z,37.657,-122.4962,10.3,2.1,Md,,93.6,0.02694946,0.06,nc,nc72106526,2013-11-20T23:19:08.423Z,"3km SSW of Broadmoor, California",earthquake
+2013-10-16T22:11:17.200Z,37.667,-122.4903,4.4,2,Md,,86.4,0.00898315,0.08,nc,nc72089056,2014-03-21T05:37:48.119Z,"2km SSW of Broadmoor, California",earthquake
+2013-10-01T03:26:59.900Z,37.7113,-122.5288,5.4,2.3,Md,,172.8,0.08983153,0.07,nc,nc72075875,2014-03-21T03:19:10.031Z,"4km NW of Broadmoor, California",earthquake
+2013-08-31T06:09:33.100Z,37.7723,-122.6235,6.4,2.2,Md,,100.8,0.08983153,0.08,nc,nc72060441,2013-11-06T01:33:35.000Z,"14km SSW of Tamalpais-Homestead Valley, California",earthquake
+2013-08-28T20:24:04.600Z,37.7708,-122.6275,4.8,1.9,Md,,100.8,0.09881468,0.14,nc,nc72058511,2013-08-30T16:13:08.547Z,"14km SW of Tamalpais-Homestead Valley, California",earthquake
+2013-08-18T05:34:47.000Z,37.7242,-122.533,11.9,2.1,Md,,136.8,0.02694946,0.08,nc,nc72051566,2014-03-21T05:20:41.848Z,"6km WNW of Daly City, California",earthquake
+2013-07-16T16:56:35.700Z,37.7508,-122.6092,6.9,2.4,Md,,234,0.70966907,0.06,nc,nc72027810,2013-07-17T01:00:52.690Z,"13km WNW of Daly City, California",earthquake
+2013-06-10T12:41:32.100Z,37.6698,-122.5288,10.8,2,Md,,111.6,0.03593261,0.08,nc,nc72005635,2013-06-18T02:49:12.016Z,"4km WSW of Broadmoor, California",earthquake
+2013-04-19T06:42:27.700Z,37.7572,-122.572,7.5,2.3,Md,,100.8,0.05389892,0.08,nc,nc71973685,2014-03-21T05:15:29.554Z,"11km WNW of Daly City, California",earthquake
+2013-03-20T11:51:14.700Z,37.754,-122.5725,7.4,2.5,Md,,100.8,0.05389892,0.07,nc,nc71957540,2014-03-21T03:44:26.677Z,"10km NW of Broadmoor, California",earthquake
+2013-03-08T20:26:55.200Z,37.7557,-122.566,6.9,2.7,Md,,97.2,0.04491576,0.09,nc,nc71950635,2014-03-21T05:06:55.165Z,"10km WNW of Daly City, California",earthquake
+2013-02-02T17:07:53.900Z,37.7568,-122.564,11.8,1.9,Md,,97.2,0.04491576,0.08,nc,nc71933971,2013-02-08T01:42:08.517Z,"10km WNW of Daly City, California",earthquake
+2012-12-31T21:00:40.960Z,37.637,-122.496,8.7,2.1,md,5,252.9,,,pde,pde20121231210040960_8,2013-03-16T00:09:51.849Z,"offshore Northern California",earthquake
+2012-10-11T14:01:32.500Z,37.768,-122.594,4.9,2.4,md,17,187.2,,,pde,pde20121011140132500_4,2013-03-16T00:15:20.274Z,"offshore Northern California",earthquake
+2012-04-02T09:59:24.500Z,37.803,-122.585,3.6,2.1,md,21,90,,,pde,pde20120402095924500_3,2013-03-16T00:10:43.239Z,"offshore Northern California",earthquake
+2012-02-24T07:49:56.830Z,37.673,-122.365,10.4,2.4,md,42,114.2,,,pde,pde20120224074956830_10,2013-03-16T00:09:35.096Z,"San Francisco Bay, California",earthquake
+2012-02-21T08:46:14.970Z,37.754,-122.57,9.2,2.2,md,32,212.2,,,pde,pde20120221084614970_9,2013-03-16T00:09:32.316Z,"offshore Northern California",earthquake
+2012-01-03T21:12:48.160Z,37.647,-122.486,10.6,2.2,md,6,213.7,,,pde,pde20120103211248160_10,2013-03-16T00:08:13.623Z,"San Francisco Bay area, California",earthquake
+2011-11-12T21:16:17.000Z,37.64,-122.49,7,2.3,ml,9,118.7,,,pde,pde20111112211617000_7,2013-03-16T00:06:50.374Z,"San Francisco Bay area, California",earthquake
+2011-10-03T12:18:22.430Z,37.653,-122.489,10.4,2,md,5,186.5,,,pde,pde20111003121822430_10,2013-03-16T00:05:55.970Z,"San Francisco Bay area, California",earthquake
+2011-09-26T03:11:40.290Z,37.725,-122.563,8.5,2.3,md,4,192.2,,,pde,pde20110926031140290_8,2013-03-16T00:05:46.744Z,"offshore Northern California",earthquake
+2011-09-08T22:07:28.350Z,37.714,-122.549,6.8,2.1,md,7,112.5,,,pde,pde20110908220728350_6,2013-03-16T00:05:14.769Z,"offshore Northern California",earthquake
+2011-08-30T07:19:18.500Z,37.714,-122.522,6.5,2.8,md,4,189,,,pde,pde20110830071918500_6,2013-03-16T00:05:01.237Z,"offshore Northern California",earthquake
+2011-08-07T17:50:22.880Z,37.705,-122.518,6.5,2.1,md,4,189.4,,,pde,pde20110807175022880_6,2013-03-16T00:04:30.603Z,"offshore Northern California",earthquake
+2010-12-18T17:40:38.120Z,37.647,-122.482,6.1,1.9,md,8,194.5,,,pde,pde20101218174038120_6,2013-03-16T01:51:34.454Z,"San Francisco Bay area, California",earthquake
+2010-09-27T18:40:21.250Z,37.741,-122.556,7.4,2,md,8,120.1,,,pde,pde20100927184021250_7,2013-03-16T01:50:42.078Z,"offshore Northern California",earthquake
+2010-07-23T21:29:10.100Z,37.665,-122.512,7.7,3.1,mwr,7,208.4,,,pde,pde20100723212910100_7,2013-12-23T04:33:38.177Z,"offshore Northern California",earthquake
+2010-06-28T17:59:50.270Z,37.745,-122.558,2.1,2.1,md,6,242.2,,,pde,pde20100628175950270_2,2013-03-16T01:49:53.032Z,"offshore Northern California",earthquake
+2010-06-28T17:07:04.540Z,37.743,-122.556,7.8,2,md,6,221.9,,,pde,pde20100628170704540_7,2013-03-16T01:49:53.031Z,"offshore Northern California",earthquake
+2010-06-28T14:47:04.340Z,37.742,-122.552,7.7,3.2,mwr,8,194.8,,,pde,pde20100628144704340_7,2013-03-16T01:49:53.017Z,"offshore Northern California",earthquake
+2010-06-15T01:44:42.600Z,37.716,-122.545,7.7,2,md,6,188.4,,,pde,pde20100615014442600_7,2013-03-16T01:49:48.176Z,"offshore Northern California",earthquake
+2010-01-02T08:30:55.980Z,37.765,-122.565,11.6,2.2,md,5,188.6,,,pde,pde20100102083055980_11,2013-03-16T01:48:07.414Z,"offshore Northern California",earthquake
+2009-06-15T06:05:27.360Z,37.663,-122.502,9.8,2.3,md,5,188,,,pde,pde20090615060527360_9,2013-03-16T01:46:01.105Z,"offshore Northern California",earthquake
+2009-05-29T21:32:58.630Z,37.663,-122.507,9.7,2.3,md,4,190,,,pde,pde20090529213258630_9,2013-03-16T01:45:48.338Z,"offshore Northern California",earthquake
+2009-05-27T00:31:52.650Z,37.666,-122.503,9.5,2.2,md,9,247.1,,,pde,pde20090527003152650_9,2013-03-16T01:45:46.810Z,"offshore Northern California",earthquake
+2008-02-07T13:31:43.210Z,37.639,-122.485,9.6,3.1,ml,7,230.6,,,pde,pde20080207133143210_9,2013-06-20T03:31:52.900Z,"San Francisco Bay area, California",earthquake
+2006-12-17T23:55:55.860Z,37.726,-122.535,11.4,2.5,md,5,179.8,,,pde,pde20061217235555860_11,2013-03-16T01:32:43.700Z,"offshore Northern California",earthquake
+2005-10-21T18:45:54.570Z,37.644,-122.51,7.4,2.6,md,5,219.4,,,pde,pde20051021184554570_7,2013-03-16T01:26:42.617Z,"offshore Northern California",earthquake
+2003-05-26T21:15:29.330Z,37.77,-122.578,8.9,3.4,ml,13,196.8,,,pde,pde20030526211529330_8,2013-03-16T01:14:04.172Z,"offshore Northern California",earthquake
+2002-01-26T06:01:16.240Z,37.678,-122.53,7.4,2.7,md,7,,,,pde,pde20020126060116240_7,2013-03-16T01:08:14.286Z,"offshore Northern California",earthquake
+2000-04-29T06:04:49.010Z,37.738,-122.551,7.2,2.5,md,,,,,pde,pde20000429060449010_7,2013-03-16T01:01:14.987Z,"offshore Northern California",earthquake
+1997-10-27T14:30:50.660Z,37.726,-122.547,9.9,3.1,ml,,,,,pde,pde19971027143050660_9,2013-03-16T00:52:02.179Z,"offshore Northern California",earthquake
+1997-08-14T08:53:35.630Z,37.736,-122.547,1.6,3,ml,,,,,pde,pde19970814085335630_1,2013-03-16T00:51:24.051Z,"offshore Northern California",earthquake
+1997-05-02T12:31:05.610Z,37.707,-122.516,5,3.2,ml,,,,,pde,pde19970502123105610_5,2013-03-16T00:50:31.925Z,"offshore Northern California",earthquake
+1997-03-11T06:33:53.400Z,37.714,-122.567,4.8,3.6,ml,,,,,pde,pde19970311063353400_4,2013-03-16T00:50:00.140Z,"offshore Northern California",earthquake
+1997-03-11T06:30:16.310Z,37.712,-122.567,5.3,3.6,ml,,,,,pde,pde19970311063016310_5,2013-03-16T00:50:00.111Z,"offshore Northern California",earthquake
+1996-07-01T04:33:05.080Z,37.713,-122.546,10.9,3.4,ml,,,,,pde,pde19960701043305080_10,2013-03-16T00:47:37.989Z,"offshore Northern California",earthquake
+1996-03-05T16:16:24.390Z,37.767,-122.574,7.2,2.4,md,,,,,pde,pde19960305161624390_7,2013-03-16T00:46:38.227Z,"offshore Northern California",earthquake
+1994-01-02T09:40:07.800Z,37.772,-122.587,10.5,2.7,md,,,,,pde,pde19940102094007800_10,2013-03-16T00:38:31.075Z,"offshore Northern California",earthquake
+1994-01-02T03:11:18.230Z,37.769,-122.585,11.3,3,ml,,,,,pde,pde19940102031118230_11,2013-03-16T00:38:30.869Z,"offshore Northern California",earthquake
+1993-12-29T17:46:14.000Z,37.629,-122.478,6.1,2.4,md,,,,,pde,pde19931229174614000_6,2013-03-16T00:38:27.414Z,"San Francisco Bay area, California",earthquake
+1993-11-24T15:28:04.280Z,37.767,-122.589,9.2,2.4,md,,,,,pde,pde19931124152804280_9,2013-03-16T00:38:08.732Z,"offshore Northern California",earthquake
+1993-11-24T15:18:07.990Z,37.768,-122.59,11.8,3.2,ml,,,,,pde,pde19931124151807990_11,2013-03-16T00:38:08.728Z,"offshore Northern California",earthquake
+1993-03-09T18:05:39.050Z,37.676,-122.533,8.4,2.5,md,,,,,pde,pde19930309180539050_8,2013-03-16T00:35:25.715Z,"offshore Northern California",earthquake
+1993-01-30T21:25:12.680Z,37.633,-122.473,7.2,2.2,md,,,,,pde,pde19930130212512680_7,2013-03-16T00:35:01.676Z,"San Francisco Bay area, California",earthquake
+1992-01-22T13:58:58.400Z,37.662,-122.492,6,1.9,ml,,,,,pde,pde19920122135858400_6,2013-03-16T00:31:30.610Z,"San Francisco Bay area, California",earthquake
+1992-01-22T13:33:52.500Z,37.658,-122.472,6,2,ml,,,,,pde,pde19920122133352500_6,2013-03-16T00:31:30.608Z,"San Francisco Bay area, California",earthquake
+1992-01-17T09:10:56.800Z,37.757,-122.567,10,2.6,ml,,,,,pde,pde19920117091056800_10,2013-03-16T00:31:28.336Z,"offshore Northern California",earthquake
+1991-11-25T21:28:38.800Z,37.66,-122.52,12,2.9,ml,,,,,pde,pde19911125212838800_12,2013-03-16T00:31:02.017Z,"offshore Northern California",earthquake
+1991-08-31T13:45:16.200Z,37.797,-122.593,3,2.6,ml,,,,,pde,pde19910831134516200_3,2013-03-16T00:30:22.067Z,"offshore Northern California",earthquake
+1990-10-22T18:55:07.000Z,37.692,-122.513,10,2.4,ml,,,,,pde,pde19901022185507000_10,2013-03-16T00:28:14.168Z,"offshore Northern California",earthquake
+1990-05-14T22:31:29.900Z,37.632,-122.473,8,2.8,ml,,,,,pde,pde19900514223129900_8,2013-03-16T00:26:50.990Z,"San Francisco Bay area, California",earthquake
+1989-11-06T23:37:24.500Z,37.642,-122.488,9,3.3,ml,,,,,pde,pde19891106233724500_9,2013-03-16T00:25:18.999Z,"San Francisco Bay area, California",earthquake
+1989-07-12T19:07:23.800Z,37.722,-122.572,11,2.8,ml,,,,,pde,pde19890712190723800_11,2013-03-16T00:24:23.100Z,"offshore Northern California",earthquake
+1989-01-17T22:39:54.200Z,37.815,-122.598,12,2.6,ml,,,,,pde,pde19890117223954200_12,2013-03-16T00:22:57.993Z,"offshore Northern California",earthquake
+1988-03-25T03:57:22.300Z,37.662,-122.485,11,2.5,ml,,,,,pde,pde19880325035722300_11,2013-03-16T00:20:57.610Z,"San Francisco Bay area, California",earthquake
+1987-12-30T01:09:10.900Z,37.782,-122.585,11,3.1,ml,,,,,pde,pde19871230010910900_11,2013-03-16T00:20:21.537Z,"offshore Northern California",earthquake
+1987-09-19T18:33:59.300Z,37.785,-122.577,12,3.3,ml,,,,,pde,pde19870919183359300_12,2013-03-16T00:19:40.482Z,"offshore Northern California",earthquake
+1987-02-01T17:53:19.000Z,37.71,-122.515,9,3.5,ml,,,,,pde,pde19870201175319000_9,2013-03-16T00:18:06.974Z,"offshore Northern California",earthquake
+1987-02-01T14:51:51.300Z,37.717,-122.525,9,3,ml,,,,,pde,pde19870201145151300_9,2013-03-16T00:18:06.884Z,"offshore Northern California",earthquake
+1986-12-25T13:28:28.100Z,37.748,-122.565,9,2.6,ml,,,,,pde,pde19861225132828100_9,2013-03-16T00:17:49.799Z,"offshore Northern California",earthquake
+1986-11-02T03:46:14.500Z,37.638,-122.483,9,3,ml,,,,,pde,pde19861102034614500_9,2013-03-16T00:17:30.533Z,"San Francisco Bay area, California",earthquake
+1986-03-09T01:28:13.000Z,37.672,-122.498,7,3.1,ml,,,,,pde,pde19860309012813000_7,2013-03-16T00:14:42.322Z,"offshore Northern California",earthquake

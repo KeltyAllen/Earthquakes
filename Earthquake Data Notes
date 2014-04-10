@@ -1,0 +1,17 @@
+Earthquakes1SF - latitude 37.627 to 37.816 long -122.707 to -122.335
+magnitude 1 - whatever, from 1-1-1986 to 4-2-2014
+
+Earthquakes2SF - same data except magnitude 1.9 and up, because it looked like Earthquakes1SF started recording small quakes only in 2010 or so
+
+Earthquakes2Japan - lat 38.297 long 142.372 circle radius 15km magnitude 2-anything, though it looks like min recorded is 3.5 or so. from 01-01-1980 to 04-03-2014
+	Centered at 2011 magnitude 9 quake
+
+Earthquakes1Berkeley - lat  37.8717 lon -122.2728 radius 15km magnitude 2+ from 1986-01-01 to 2014-04-04
+
+Earthquakes1Peru - lat -16.264, -73.641 radius 30km magnitude 2+ (looks like only 4+ recorded) from 1980-01-01 to 2014-04-04
+
+Earthquakes1LA - lat 33.932 long -117.917, radius 20km magnitude 2+ 1980-01-01 to 2014-04-04 Also I remembered to restrict to just earthquakes
+
+Earthquakes2LA - same as Earthquakes1LA but restricted from 2005-01-01 to 2014-04-04
+
+Earthquakes3LA - same as Earthquakes2LA and 1LA but restricted to 5.5 magnitude quake in August 2008 and 2 years of data after that. 

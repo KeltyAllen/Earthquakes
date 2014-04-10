@@ -1,0 +1,60 @@
+time,latitude,longitude,depth,mag,magType,nst,gap,dmin,rms,net,id,updated,place,type
+1980-07-29T19:53:34.500Z,38.307,142.25,33,4.4,mb,,,,,pde,pde19800729195334500_33,2013-02-08T21:40:29.590Z,"near the east coast of Honshu, Japan",earthquake
+1981-01-26T09:48:10.300Z,38.275,142.519,89,4.2,mb,,,,,pde,pde19810126094810300_89,2013-02-08T21:40:33.197Z,"near the east coast of Honshu, Japan",earthquake
+1987-01-22T13:11:01.590Z,38.388,142.306,33,4.8,mb,,,,0.5,pde,pde19870122131101590_33,2013-03-16T00:18:01.870Z,"near the east coast of Honshu, Japan",earthquake
+1987-05-26T12:07:52.560Z,38.222,142.318,36.6,5.5,mw,,,,1,pde,pde19870526120752560_36,2013-03-16T00:18:53.985Z,"near the east coast of Honshu, Japan",earthquake
+1989-12-22T07:04:45.600Z,38.303,142.341,33,4.7,mb,,,,1.2,pde,pde19891222070445600_33,2013-03-16T00:25:37.587Z,"near the east coast of Honshu, Japan",earthquake
+1996-08-10T12:09:19.040Z,38.396,142.394,33,4,mb,,,,1.3,pde,pde19960810120919040_33,2013-03-16T00:48:00.186Z,"near the east coast of Honshu, Japan",earthquake
+1999-11-15T01:34:35.800Z,38.304,142.309,50.6,5.7,mwc,,,,0.67,pde,pde19991115013435800_50,2013-03-16T00:59:46.314Z,"near the east coast of Honshu, Japan",earthquake
+2005-08-16T11:07:09.560Z,38.202,142.265,46.7,4,mwr,21,209.4,,0.59,pde,pde20050816110709560_46,2013-03-16T01:25:40.884Z,"near the east coast of Honshu, Japan",earthquake
+2005-09-29T15:51:04.220Z,38.35,142.257,35,3.6,mwr,9,141,,1.41,pde,pde20050929155104220_35,2013-03-16T01:26:17.367Z,"near the east coast of Honshu, Japan",earthquake
+2006-01-31T19:23:59.020Z,38.321,142.342,41.8,5.3,mwc,41,124.2,,0.68,pde,pde20060131192359020_41,2013-03-16T01:27:51.143Z,"near the east coast of Honshu, Japan",earthquake
+2007-01-17T04:11:38.070Z,38.276,142.38,63.4,4.2,mb,22,129.6,,0.91,pde,pde20070117041138070_63,2013-03-16T01:33:12.145Z,"near the east coast of Honshu, Japan",earthquake
+2007-12-25T23:38:54.020Z,38.366,142.312,31.5,4.4,mwr,102,121.8,,0.76,pde,pde20071225233854020_31,2013-03-16T01:38:26.598Z,"near the east coast of Honshu, Japan",earthquake
+2009-10-14T13:09:59.320Z,38.295,142.414,41.7,4.3,mwr,29,128.1,,1.15,pde,pde20091014130959320_41,2013-03-16T01:47:20.414Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-09T18:16:16.440Z,38.315,142.434,22,6,mww,411,29.7,,1.14,pde,pde20110309181616440_22,2013-03-16T01:52:43.039Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-11T05:46:24.120Z,38.297,142.373,29,9,mww,541,9.5,,1.16,pde,pde20110311054624120_29,2014-03-03T21:18:19.324Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-11T16:56:44.260Z,38.181,142.33,35,4.8,mb,65,121.5,,0.97,pde,pde20110311165644260_35,2013-03-16T01:52:52.820Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-11T20:42:38.600Z,38.275,142.257,10,5,mb,41,121.3,,0.74,pde,pde20110311204238600_10,2013-03-16T01:52:54.552Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-11T20:43:39.390Z,38.279,142.363,35,4.9,mb,21,146,,0.89,pde,pde20110311204339390_35,2013-03-16T01:52:54.556Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-11T22:04:13.140Z,38.282,142.251,69.2,5.4,mb,34,65.9,,0.85,pde,pde20110311220413140_69,2013-03-16T01:52:54.932Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-12T00:40:32.750Z,38.328,142.274,13.4,4.8,mb,60,121.4,,0.67,pde,pde20110312004032750_13,2013-03-16T01:52:55.915Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-12T05:31:43.210Z,38.383,142.303,35,4.5,mb,18,97.9,,0.69,pde,pde20110312053143210_35,2013-03-16T01:52:57.905Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-12T15:24:33.360Z,38.303,142.272,35,4.1,mb,36,121.6,,1.26,pde,pde20110312152433360_35,2013-03-16T01:53:00.957Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-13T13:01:10.780Z,38.292,142.406,35,4.7,mb,39,129.6,,1.03,pde,pde20110313130110780_35,2013-03-16T01:53:06.699Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-15T20:03:51.370Z,38.394,142.293,35,4.7,mb,34,121.1,,0.63,pde,pde20110315200351370_35,2013-03-16T01:53:14.435Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-17T18:17:29.120Z,38.334,142.328,28.4,4.5,mb,46,121.6,,0.85,pde,pde20110317181729120_28,2013-03-16T01:53:20.020Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-17T19:02:56.120Z,38.239,142.286,45.9,5,mb,61,121.5,,0.89,pde,pde20110317190256120_45,2013-03-16T01:53:20.123Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-18T12:59:30.830Z,38.353,142.268,45.6,4.5,mb,33,127.7,,0.83,pde,pde20110318125930830_45,2013-03-16T01:53:21.356Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-21T18:48:15.310Z,38.337,142.395,39.6,4,mb,12,162.9,,1.05,pde,pde20110321184815310_39,2013-03-16T01:53:26.991Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-23T20:58:20.840Z,38.295,142.284,41,4.6,mb,49,121.4,,0.74,pde,pde20110323205820840_41,2013-03-16T01:53:30.468Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-24T01:11:16.120Z,38.312,142.296,34.9,4.6,mb,22,129.7,,0.87,pde,pde20110324011116120_34,2013-03-16T01:53:30.594Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-24T10:44:12.100Z,38.395,142.386,35,4.7,mb,24,135.8,,0.95,pde,pde20110324104412100_35,2013-03-16T01:53:30.960Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-30T07:58:42.870Z,38.312,142.224,56.6,4.6,mb,36,121.6,,0.87,pde,pde20110330075842870_56,2013-03-16T01:53:36.750Z,"near the east coast of Honshu, Japan",earthquake
+2011-03-31T13:43:00.130Z,38.314,142.29,35,4.5,mb,31,121.5,,1.08,pde,pde20110331134300130_35,2013-03-16T01:53:38.065Z,"near the east coast of Honshu, Japan",earthquake
+2011-04-01T13:30:24.880Z,38.4,142.356,10,4.6,mb,24,126.8,,1.05,pde,pde20110401133024880_10,2013-03-16T00:01:13.519Z,"near the east coast of Honshu, Japan",earthquake
+2011-04-01T18:01:01.520Z,38.299,142.266,45.2,4.5,mb,28,122.8,,0.85,pde,pde20110401180101520_45,2013-03-16T00:01:14.358Z,"near the east coast of Honshu, Japan",earthquake
+2011-04-07T15:31:27.410Z,38.216,142.254,69.9,4.6,mb,18,170.3,,0.95,pde,pde20110407153127410_69,2013-03-16T00:01:23.692Z,"near the east coast of Honshu, Japan",earthquake
+2011-04-14T00:10:06.630Z,38.288,142.217,24,4.5,mb,38,127.3,,0.84,pde,pde20110414001006630_24,2013-03-16T00:01:34.120Z,"near the east coast of Honshu, Japan",earthquake
+2011-05-07T02:56:58.810Z,38.394,142.282,35,4.2,mb,9,211.3,,0.37,pde,pde20110507025658810_35,2013-03-16T00:02:06.230Z,"near the east coast of Honshu, Japan",earthquake
+2011-06-11T02:08:33.740Z,38.346,142.442,40.1,4,mb,15,155.9,,0.74,pde,pde20110611020833740_40,2013-03-16T00:02:54.996Z,"near the east coast of Honshu, Japan",earthquake
+2011-06-15T15:16:34.710Z,38.305,142.291,45.5,4.7,mb,37,127.6,,0.57,pde,pde20110615151634710_45,2013-03-16T00:03:02.634Z,"near the east coast of Honshu, Japan",earthquake
+2011-07-13T18:49:58.970Z,38.381,142.301,36,4.6,mb,37,116.7,,0.98,pde,pde20110713184958970_36,2013-03-16T00:03:46.430Z,"near the east coast of Honshu, Japan",earthquake
+2011-07-15T23:53:12.980Z,38.268,142.252,51.3,4.4,mb,28,129.6,,0.8,pde,pde20110715235312980_51,2013-03-16T00:03:48.702Z,"near the east coast of Honshu, Japan",earthquake
+2011-07-18T16:00:22.560Z,38.303,142.226,48.7,4.6,mb,24,129.7,,0.65,pde,pde20110718160022560_48,2013-03-16T00:03:53.893Z,"near the east coast of Honshu, Japan",earthquake
+2011-07-29T23:18:37.740Z,38.343,142.442,26.1,4.5,mb,28,142.7,,1.22,pde,pde20110729231837740_26,2013-03-16T00:04:07.033Z,"near the east coast of Honshu, Japan",earthquake
+2011-08-16T16:11:28.810Z,38.368,142.251,39.5,4.5,mb,17,135.8,,0.6,pde,pde20110816161128810_39,2013-03-16T00:04:39.649Z,"near the east coast of Honshu, Japan",earthquake
+2011-08-28T01:23:16.370Z,38.399,142.457,27.5,4.1,mb,16,129.8,,0.71,pde,pde20110828012316370_27,2013-03-16T00:04:58.785Z,"near the east coast of Honshu, Japan",earthquake
+2011-09-04T12:22:03.050Z,38.345,142.363,36,4.9,mb,33,97.9,,0.73,pde,pde20110904122203050_36,2013-03-16T00:05:10.524Z,"near the east coast of Honshu, Japan",earthquake
+2011-09-15T22:39:27.530Z,38.258,142.222,47.3,4.1,mb,18,155.7,,1.02,pde,pde20110915223927530_47,2013-03-16T00:05:25.086Z,"near the east coast of Honshu, Japan",earthquake
+2011-10-18T04:23:17.370Z,38.366,142.28,57.3,4.7,mb,26,129.7,,0.69,pde,pde20111018042317370_57,2013-03-16T00:06:14.233Z,"near the east coast of Honshu, Japan",earthquake
+2011-11-08T13:52:50.670Z,38.213,142.27,41.9,4.2,mb,25,129.6,,0.96,pde,pde20111108135250670_41,2013-03-16T00:06:45.068Z,"near the east coast of Honshu, Japan",earthquake
+2011-12-12T02:34:09.620Z,38.176,142.352,39.5,4.7,mb,39,121.5,,1,pde,pde20111212023409620_39,2013-03-16T00:07:46.392Z,"near the east coast of Honshu, Japan",earthquake
+2012-01-10T23:23:41.150Z,38.275,142.253,43.8,4.1,mb,15,178.4,,1.42,pde,pde20120110232341150_43,2013-03-16T00:08:28.481Z,"near the east coast of Honshu, Japan",earthquake
+2012-01-12T05:37:28.760Z,38.336,142.461,35,5.2,mb,348,49.4,,0.76,pde,pde20120112053728760_35,2013-03-16T00:08:29.896Z,"near the east coast of Honshu, Japan",earthquake
+2012-04-17T04:25:03.880Z,38.271,142.272,61.5,4.6,mb,91,121.6,,0.89,pde,pde20120417042503880_61,2013-03-16T00:11:06.237Z,"near the east coast of Honshu, Japan",earthquake
+2012-05-27T10:09:25.130Z,38.37,142.32,38,4.6,mb,41,127.1,,0.93,pde,pde20120527100925130_38,2013-03-16T00:11:59.416Z,"near the east coast of Honshu, Japan",earthquake
+2013-10-03T20:35:05.280Z,38.2876,142.428,42.93,4.5,mb,,181,3.764,0.51,us,usb000k99u,2014-01-10T02:15:54.765Z,"99km E of Ishinomaki, Japan",earthquake
+2013-11-13T22:09:03.400Z,38.3516,142.2804,57.28,4.4,mb,,153,3.709,0.89,us,usb000l2qw,2014-01-31T23:25:52.353Z,"85km E of Ishinomaki, Japan",earthquake
+2013-12-02T14:33:51.310Z,38.2751,142.3304,59.27,4.8,mb,,83,3.709,0.81,us,usb000lbza,2014-02-12T01:08:41.000Z,"91km E of Ishinomaki, Japan",earthquake
+2014-02-18T20:02:32.390Z,38.3276,142.3725,47.82,4.7,mb,,42,3.731,0.91,us,usc000mszp,2014-03-26T14:39:02.000Z,"94km E of Ishinomaki, Japan",earthquake
