@@ -22,7 +22,7 @@ def main():
   lat2 = 35.826
   lon1 = -121.84
   lon2 = -115.402
-  print "width is ", (lon2 - lon1)*1000/lonperkm, " height is ", (lat1 - lat2)*1000/latperkm
+  
   m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
   m.drawcoastlines()
   m.drawcountries()

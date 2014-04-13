@@ -11,7 +11,8 @@ from numpy import array
 import data_analysis_tools as tools
 from sklearn.cluster import KMeans
 from mpl_toolkits.basemap import Basemap
-
+import pylab as pl
+from matplotlib.backends.backend_pdf import PdfPages
 
 #This function returns the days in months previous to the current month
 def days_in_year(monthnum):
@@ -32,12 +33,23 @@ def one_dim_plot(timeinyears, mag, colors):
   if len(timeinyears) != len(mag):
     print "time length != mag length"  	
   plt.scatter(timeinyears, mag, c = colors)
-  plt.gca().xaxis.set_major_formatter(ticker.FormatStrFormatter('%d'))
+  plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
   plt.title("Earthquakes")
   plt.ylabel("Magnitude")
   plt.xlabel("Year")
   plt.show()
-	
+
+def one_dim_plot_save(timeinyears, mag, colors, pp):
+  fig = plt.figure(figsize=(10, 5), dpi=100)
+  if len(timeinyears) != len(mag):
+    print "time length != mag length"  	
+  plt.scatter(timeinyears, mag, c = colors)
+  plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
+  plt.title("Earthquakes")
+  plt.ylabel("Magnitude")
+  plt.xlabel("Year")
+  plt.savefig(pp, format='pdf')
+
 	
 #lontemp, lattemp, magtemp are arrays with data to map, avggyear is average year, goes in title, m is the map object with correct width, lat/lon, etc. 	
 def two_dim_plot(lontemp, lattemp, magtemp, avgyear, m):
@@ -57,15 +69,32 @@ def two_dim_plot(lontemp, lattemp, magtemp, avgyear, m):
   plt.title("Earthquakes, clustered around (%d, %d) %d" %(avglat, avglon, avgyear),fontsize=10 )
   plt.show()
 
-
+def two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp):
+  avglon = np.mean(lontemp)
+  avglat = np.mean(lattemp)
+  m.drawcoastlines()
+  m.drawcountries()
+  m.drawstates()
+  m.fillcontinents(color='coral')
+  m.drawmapboundary()
+  
+  for i in range(len(lontemp)):
+    x, y = m(lontemp[i], lattemp[i])
+    m.plot(x, y, 'bo', alpha = .6, markersize = 2*magtemp[i])
+   
+  #Currently just gives the average of the cluster data, rather than the centroid, to minimize things passed 
+  plt.title("Earthquakes, clustered around (%d, %d) %d" %(avglat, avglon, avgyear),fontsize=10 )
+  plt.savefig(pp, format='pdf')
+  
+  
 
 def main():
 	
   latperkm = (35.826 - 32.996)/314.7
 	
   #IMPORTANT NOTE: THE FOLLOWING CONSTANTs are DEPENDENDENT ON REGION 
-  lat1 = 32.996
-  lat2 = 35.826
+  lat1 = 32.9
+  lat2 = 35.9
   lon1 = -121.84
   lon2 = -115.402
   lonperkm = (lon2 - lon1)/590.3    #Const for SoCal20002010.csv
@@ -120,9 +149,9 @@ def main():
 
   
   #This function now uses sklearns kmeans. It is slooooow. It's faster but less useful with scipy kmeans algorithm
-  #tools.kcheck(data, 60)
-  #k = int(raw_input('What k looks appropriate? '))
-  k = 20
+  tools.kcheck(data, 70)
+  k = int(raw_input('What k looks appropriate? '))
+  #k = 20
   
   
   #Using sklearn kmeans:
@@ -136,8 +165,9 @@ def main():
   lattemp = []
   timetemp = []
   magtemp = []
+  pp = PdfPages('3DSoCal19982002KMeans.pdf')
   
-  for j in range(0, 3):   #should be range(0, k)
+  for j in range(0, k):   #should be range(0, k)
     lontemp = []
     lattemp = []
     timetemp = []
@@ -153,8 +183,12 @@ def main():
     	  colortemp.append(j)
     avgyear = np.mean(timetemp)
     m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
-    two_dim_plot(lontemp, lattemp, magtemp, avgyear, m)
-    one_dim_plot(timetemp, magtemp, colortemp)
+    one_dim_plot_save(timetemp, magtemp, colortemp, pp)
+    two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
+    
+    
+  pp.close()  
+    
     
     #m.drawcoastlines()
     #m.drawcountries()

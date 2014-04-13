@@ -24,6 +24,19 @@ def kmeans_analysis(data, centroids, colors, k):
 
   return sum(radius)/k
   
+#I don't really know how to pick preference, so I'm gonna play around with it like I did with kmeans  
+def afprop_analysis(data, centroids, colors):
+  k = len(centroids)
+  radius = [0]*k #holds max radius
+  dist = []
+  for i in range(len(data)):
+  	dist.append(euclidean(data[i], centroids[colors[i]]))
+  
+  for i in range(len(data)):
+    if dist[i] > radius[colors[i]]:
+      radius[colors[i]] = dist[i]
+
+  return sum(radius)/k
   
 #This function takes array data and a maximum k =kcheck to look at and prints a plot of k-means clustering errors up to max k
 def kcheck(data, kcheck):
@@ -42,3 +55,6 @@ def kcheck(data, kcheck):
   plt.xlabel("Number of clusters")
   plt.title("K-means curve")
   plt.show()
+  
+  
+	
