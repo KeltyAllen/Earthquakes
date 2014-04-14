@@ -162,12 +162,13 @@ def main():
   
   pp = PdfPages('3DSoCal199820020DBSCANeps30.pdf')
   clustersizes = []
+  m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
   for j in range(0, n_clusters):   #should be range(0, n_clusters)
     lontemp = []
     lattemp = []
     timetemp = []
     magtemp = []
-    m = []
+
     colortemp = []
     for i in range(len(labels)):
       if labels[i] == j:
@@ -178,7 +179,7 @@ def main():
   	    colortemp.append(j)
     avgyear = np.mean(timetemp)
     clustersizes.append(len(lontemp))
-    m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
+    
     #one_dim_plot(timetemp, magtemp, colortemp)
     #two_dim_plot(lontemp, lattemp, magtemp, avgyear, m)
     one_dim_plot_save(timetemp, magtemp, colortemp, pp) 

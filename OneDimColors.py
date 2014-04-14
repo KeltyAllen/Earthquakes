@@ -9,7 +9,7 @@ from matplotlib import ticker
 from scipy.cluster.vq import kmeans2,vq
 from numpy import array
 import data_analysis_tools as tools
-from sklearn.cluster import KMeans
+from sklearn.cluster import KMeans, DBSCAN
 from mpl_toolkits.basemap import Basemap
 import pylab as pl
 from matplotlib.backends.backend_pdf import PdfPages
@@ -125,7 +125,7 @@ def main():
   latdist = []
   timefloat = 0.0
   centroids = []
-  colors = []
+  kcolors = []
   
  
   for i in range(len(x)):
@@ -148,7 +148,7 @@ def main():
   	#print "time: ", time[i], "data: ", data[i]
 
   
-  #This function now uses sklearns kmeans. It is slooooow. It's faster but less useful with scipy kmeans algorithm
+  #KMeans
   tools.kcheck(data, 70)
   k = int(raw_input('What k looks appropriate? '))
   #k = 20
@@ -158,36 +158,71 @@ def main():
   kmeans = KMeans(n_clusters = k)
   kmeans.fit(data)
   centroids = kmeans.cluster_centers_
-  colors = kmeans.labels_
+  kcolors = kmeans.labels_
+  fig = plt.figure(figsize=(10, 5), dpi=100)
+  if len(timeinyears) != len(mag):
+    print "time length != mag length"  	
+  plt.scatter(timeinyears, mag, c = kcolors)
+  plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
+  plt.title("Kmeans Earthquake Clustering")
+  plt.ylabel("Magnitude")
+  plt.xlabel("Year")
+  plt.show()
   
   
-  lontemp = []
-  lattemp = []
-  timetemp = []
-  magtemp = []
-  pp = PdfPages('3DSoCal19982002KMeans.pdf')
-  m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
-  for j in range(0, k):   #should be range(0, k)
-    lontemp = []
-    lattemp = []
-    timetemp = []
-    magtemp = []
+  #DBSCAN
+  db = DBSCAN(eps = 40).fit(data)
+  core_samples = db.core_sample_indices_
+  labels = db.labels_ 
 
-    colortemp = []
-    for i in range(len(colors)):
-      if colors[i] == j:
-    	  lontemp.append(longitude[i])
-    	  lattemp.append(latitude[i])
-    	  timetemp.append(timeinyears[i])
-    	  magtemp.append(mag[i])
-    	  colortemp.append(j)
-    avgyear = np.mean(timetemp)
+  
+  # Number of clusters in labels, ignoring noise if present.
+  n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+  
+  print "there are ", n_clusters, " clusters using DBSCAN\n"
+  
+  dbcolors = [0]*len(labels)
+  
+  for j in range(0, n_clusters):
+    for i in range(len(labels)):
+        if labels[i] == j:
+        	dbcolors[i] = j + 1
+  
+  fig = plt.figure(figsize=(10, 5), dpi=100)
+  if len(timeinyears) != len(mag):
+    print "time length != mag length"  	
+  plt.scatter(timeinyears, mag, c = labels)
+  plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
+  plt.title("Earthquakes using DBSCAN")
+  plt.ylabel("Magnitude")
+  plt.xlabel("Year")
+  #plt.savefig(pp, format='pdf')
+  plt.show()
+  
+  
+  #pp = PdfPages('3DSoCal19982002KMeans.pdf')
+  #m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
+  #for j in range(0, k):   #should be range(0, k)
+  #  lontemp = []
+  #  lattemp = []
+  #  timetemp = []
+  #  magtemp = []
+
+  #  colortemp = []
+  #  for i in range(len(colors)):
+  #    if colors[i] == j:
+  #  	  lontemp.append(longitude[i])
+  #  	  lattemp.append(latitude[i])
+  #  	  timetemp.append(timeinyears[i])
+  #  	  magtemp.append(mag[i])
+  #  	  colortemp.append(j)
+  #  avgyear = np.mean(timetemp)
     
-    one_dim_plot_save(timetemp, magtemp, colortemp, pp)
-    two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
+   # one_dim_plot_save(timetemp, magtemp, colortemp, pp)
+   # two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
     
     
-  pp.close()  
+  #pp.close()  
     
     
     #m.drawcoastlines()

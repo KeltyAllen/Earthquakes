@@ -110,107 +110,167 @@ def two_dim_plot(lontemp, lattemp, magtemp, avgyear, m):
   #plt.savefig(pp, format='pdf')
   plt.show()	 	
 
+
+
 def main():
 	
-  latperkm = (35.826 - 32.996)/314.7
-
-	
-  filename = sys.argv[1]
-  x = [] #time data, v. rough format so far
-  latitude = [] 
-  longitude = []
-  mag = []
-  index = 0
+  #filename = sys.argv[1]
+  filename = raw_input('Enter the name of a data file, or enter "end" or "quit" or "q" to quit: ')
   
-  with open(filename, 'rb') as f:
-    readdata = csv.reader(f)
-    for row in readdata:
-      if index>0:
-        x.append(row[0])
-        latitude.append(float(row[1]))
-        longitude.append(float(row[2]))
-        mag.append(float(row[4])) 
-      index = index + 1
+  #Very long while loop to get filenames and process them
+  while(filename != 'end' and filename != 'quit' and filename != 'q' and filename != 'Q' and filename != "Quit" and filename != "quit()"):
+    x = [] #time data, v. rough format so far
+    latitude = [] 
+    longitude = []
+    mag = []
+    index = 0
+  
+    with open(filename, 'rb') as f:
+      readdata = csv.reader(f)
+      for row in readdata:
+        if index>0:
+          x.append(row[0])
+          latitude.append(float(row[1]))
+          longitude.append(float(row[2]))
+          mag.append(float(row[4])) 
+        index = index + 1
     
-  data = []
-  timeinyears = [] #want this for prettier plots
-  time = [] 
-  temp = [] #for holding things temporarily. Not temperature, this is earthquake stuff, that would be silly
-  longdist = [] #dist is in units of km, for running clustering algorithms
-  latdist = []
-  timefloat = 0.0
-  centroids = []
-  colors = []
+    data = []
+    timeinyears = [] #want this for prettier plots
+    time = [] 
+    temp = [] #for holding things temporarily. Not temperature, this is earthquake stuff, that would be silly
+    longdist = [] #dist is in units of km, for running clustering algorithms
+    latdist = []
+    timefloat = 0.0
+    centroids = []
+    colors = []
   
-  #IMPORTANT NOTE: THE FOLLOWING CONSTANTS ARE DEPENDENDENT ON REGION 
-  lat1 = min(latitude)
-  lat2 = max(latitude)
-  lon1 = min(longitude)
-  lon2 = max(longitude)
-  lonperkm = (lon2 - lon1)/distance_on_unit_sphere((lat1 + lat2)/2, lon1, (lat1+lat2)/2, lon2)    #Const for SoCal20002010.csv & 3DSoCal20002010.csv
-  print "lat1, lat2, lon1, lon2, lonperkm are ", lat1, lat2, lon1, lon2, lonperkm 
- 
- 
-  for i in range(len(x)):
-    timefloat = float(x[i][0:4]) + (days_in_year(float(x[i][5:7])) + float(x[i][8:10]))/365 + float(x[i][11:13])/(24*365) + float(x[i][14:16])/(60*24*365)
-    #ok units currently in years, let's change to days
-    timeinyears.append(timefloat)
-    timefloat = timefloat*365
-    time.append(timefloat)
-    longdist.append((float(longitude[i]) - lon1)/lonperkm)
-    latdist.append((float(latitude[i]) - lat1)/latperkm)
-    data.append([longdist[i], latdist[i], time[i]])
+    lat1 = min(latitude)
+    lat2 = max(latitude)
+    lon1 = min(longitude)
+    lon2 = max(longitude)
+    lonperkm = abs((lon2 - lon1)/distance_on_unit_sphere((lat1 + lat2)/2, lon1, (lat1+lat2)/2, lon2))    #Const for SoCal20002010.csv & 3DSoCal20002010.csv
+    latperkm = abs((lat2 - lat1)/distance_on_unit_sphere(lat1, (lon1 + lon2)/2, lat2, (lon1 + lon2)/2))
+  
+  
+    for i in range(len(x)):
+      timefloat = float(x[i][0:4]) + (days_in_year(float(x[i][5:7])) + float(x[i][8:10]))/365 + float(x[i][11:13])/(24*365) + float(x[i][14:16])/(60*24*365)
+      #ok units currently in years, let's change to days
+      timeinyears.append(timefloat)
+      timefloat = timefloat*365
+      time.append(timefloat)
+      longdist.append((float(longitude[i]) - lon1)/lonperkm)
+      latdist.append((float(latitude[i]) - lat1)/latperkm)
+      data.append([longdist[i], latdist[i], time[i]])
 	
-  time = array(time)
-  longdist = array(longdist)
-  latdist = array(latdist)
+    time = array(time)
+    longdist = array(longdist)
+    latdist = array(latdist)
   
-  data = array(data)
-  
-  
+    data = array(data)
   
   
-  #DBSCAN
-  db = DBSCAN(eps = 30).fit(data)
-  core_samples = db.core_sample_indices_
-  labels = db.labels_ 
+  
+  
+    #DBSCAN
+    db = DBSCAN(eps = 40).fit(data)
+    core_samples = db.core_sample_indices_
+    labels = db.labels_ 
 
   
-  # Number of clusters in labels, ignoring noise if present.
-  n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
+    # Number of clusters in labels, ignoring noise if present.
+    n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
   
-  print "there are ", n_clusters, " clusters\n"
-  #print "labels looks like ", labels
-  
-  
-  #pp = PdfPages('3DSoCal199820020DBSCANeps30.pdf')
-  clustersizes = []
-  for j in range(0, n_clusters):   #should be range(0, n_clusters)
+    print "there are ", n_clusters, " clusters\n"
+    #print "labels looks like ", labels
+    
+    
+ 
+    outputpdf = raw_input("Where would you like to store the plots?\n Filename should end in .pdf: ")
+    pp = PdfPages(outputpdf)
+    metadata = pp.infodict()
+    metadata['Title'] = 'Figures for some of the larger clusters for %s'%filename
+    #metadata['Author'] = 'Pluto'
+    #metadata['Subject'] = 'How to add metadata to a PDF file within matplotlib'
+    #metadata['Keywords'] = 'PdfPages example'
+    m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
+    clustersizes = []
+    
+    for j in range(0, n_clusters):   #should be range(0, n_clusters)
+      lontemp = []
+      lattemp = []
+      timetemp = []
+      magtemp = []
+      colortemp = []
+      for i in range(len(labels)):
+        if labels[i] == j:
+  	      lontemp.append(longitude[i])
+  	      lattemp.append(latitude[i])
+  	      timetemp.append(timeinyears[i])
+  	      magtemp.append(mag[i])
+  	      colortemp.append(j)
+      avgyear = np.mean(timetemp)
+      clustersizes.append(len(lontemp))
+      #one_dim_plot(timetemp, magtemp, colortemp)
+      #two_dim_plot(lontemp, lattemp, magtemp, avgyear, m)
+      #one_dim_plot_save(timetemp, magtemp, colortemp, pp) 
+      if (max(magtemp) > 5 or len(lontemp)>len(longitude)/(2*n_clusters)):
+      	one_dim_plot_save(timetemp, magtemp, colortemp, pp)
+        two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
+     
+    #Recording the noise, just to see it 
     lontemp = []
     lattemp = []
     timetemp = []
     magtemp = []
-    m = []
-    colortemp = []
+    colortemp = [] 
     for i in range(len(labels)):
-      if labels[i] == j:
-  	    lontemp.append(longitude[i])
-  	    lattemp.append(latitude[i])
-  	    timetemp.append(timeinyears[i])
-  	    magtemp.append(mag[i])
-  	    colortemp.append(j)
+      if labels[i] == -1:
+        lontemp.append(longitude[i])
+        lattemp.append(latitude[i])
+        timetemp.append(timeinyears[i])
+        magtemp.append(mag[i])
+        colortemp.append(j)
     avgyear = np.mean(timetemp)
-    clustersizes.append(len(lontemp))
-    #m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
-    #one_dim_plot(timetemp, magtemp, colortemp)
-    #two_dim_plot(lontemp, lattemp, magtemp, avgyear, m)
-    #one_dim_plot_save(timetemp, magtemp, colortemp, pp) 
-    #if (max(magtemp) > 5 or len(lontemp)>15):
-      #two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
-      
-  #pp.close()
+  	
+  	#Copied from one_dime_plot_save
+    fig = plt.figure(figsize=(10, 5), dpi=100)
+    if len(timeinyears) != len(mag):
+      print "time length != mag length"  	
+    plt.scatter(timeinyears, mag, c = colors)
+    plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
+    plt.title("DBSCAN Noise - unclustered quakes")
+    plt.ylabel("Magnitude")
+    plt.xlabel("Year")
+    plt.savefig(pp, format='pdf')
     
+    
+    #Copied from two_dim_plot_save
+    avglon = np.mean(lontemp)
+    avglat = np.mean(lattemp)
+    m.drawcoastlines()
+    m.drawcountries()
+    m.drawstates()
+    m.fillcontinents(color='coral')
+    m.drawmapboundary()
   
+    for i in range(len(lontemp)):
+      x, y = m(lontemp[i], lattemp[i])
+      m.plot(x, y, 'bo', alpha = .6, markersize = 3*magtemp[i])
+   
+  #Currently just gives the average of the cluster data, rather than the centroid, to minimize things passed 
+    plt.title("Earthquakes, no cluster - DBSCAN Noise")
+    plt.savefig(pp, format='pdf')
+    
+    #Close the file
+    pp.close()
+        
+    filename = raw_input('Enter the name of a data file, or enter "end" or "quit" or "q" to quit: ')
+    
+    
+  #End of the very long while loop
+  print "Goodbye!"
+
 
 if __name__ == '__main__':
   main()
