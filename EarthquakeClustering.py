@@ -60,7 +60,7 @@ def one_dim_plot_save(timeinyears, mag, colors, pp):
   plt.ylabel("Magnitude")
   plt.xlabel("Year")
   plt.savefig(pp, format='pdf')
-  #plt.show()   
+  
     
 #lontemp, lattemp, magtemp are arrays with data to map, avggyear is average year, goes in title, m is the map object with correct width, lat/lon, etc. 	
 def two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp):
@@ -70,14 +70,14 @@ def two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp):
   m.drawcountries()
   m.drawstates()
   m.fillcontinents(color='coral')
-  m.drawmapboundary()
-  
+  m.drawmapboundary()  
   for i in range(len(lontemp)):
     x, y = m(lontemp[i], lattemp[i])
-    m.plot(x, y, 'bo', alpha = .6, markersize = 3*magtemp[i])
-   
+    m.plot(x, y, 'bo', alpha = .6, markersize = 3*magtemp[i])   
   #Currently just gives the average of the cluster data, rather than the centroid, to minimize things passed 
   plt.title("Earthquakes, clustered around (%d, %d) %d" %(avglat, avglon, avgyear),fontsize=10 )
+  plt.ylabel("")
+  plt.xlabel("")
   plt.savefig(pp, format='pdf')    
     
     
@@ -90,25 +90,23 @@ def main():
   latitude = [] 
   longitude = []
   mag = []
-
+  headerflag = 0
   
   with open(filename, 'rb') as f:
     readdata = csv.reader(f)
     for row in readdata:
-      x.append(row[0])
-      latitude.append(float(row[1]))
-      longitude.append(float(row[2]))
-      mag.append(float(row[4])) 
-  
-  #Keep the headers elsewhere
-  xheader = x[0]
-  x.pop(0)
-  latheader = latitude[0]
-  latitude.pop(0)
-  lonheader = longitude[0]
-  longitude.pop(0)
-  maghead = mag[0]
-  mag.pop(0)
+      if headerflag == 0:  #getting header info
+        xheader = row[0]
+        latheader = row[1]
+        lonheader = row[2]
+        magheader = row[4]
+        headerflag = 1
+      else:
+        x.append(row[0])
+        latitude.append(float(row[1]))
+        longitude.append(float(row[2]))
+        mag.append(float(row[4])) 
+
   
   data = []
   timeinyears = [] #want this for prettier plots
@@ -143,18 +141,20 @@ def main():
   
   data = array(data)
   
-  
-  outputpdf = raw_input("Where would you like to store the plots?\n Filename should end in .pdf: ")
+  #Info for the output file
+  outputpdf = raw_input("Where would you like to store the plots?\nFilename should end in .pdf: ")
   pp = PdfPages(outputpdf)
   metadata = pp.infodict()
   metadata['Title'] = 'Figures for %s'%filename
+  
+  
   #####
   # Running clustering algorithms, plotting one-dimensional color-coded plots to see a big picture of all clusters in time
   
   #KMeans
-  tools.kcheck(data, 70)
-  k = int(raw_input('What k looks appropriate for kmeans clustering?'))
-  #k = 20
+  #tools.kcheck(data, 70)
+  #k = int(raw_input('What k looks appropriate for kmeans clustering? '))
+  k = 12
   
   
   #Using sklearn kmeans:
@@ -170,7 +170,7 @@ def main():
   plt.title("Kmeans Earthquake Clustering")
   plt.ylabel("Magnitude")
   plt.xlabel("Year")
-  plt.show()
+  plt.savefig(pp, format='pdf')
   
   
   #DBSCAN
@@ -182,25 +182,23 @@ def main():
   # Number of clusters in labels, ignoring noise if present.
   n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
   
-  print "there are ", n_clusters, " clusters using DBSCAN\n"
+  print "There are ", n_clusters, " clusters using DBSCAN\n"
   
-  dbcolors = [0]*len(labels)
+  dbcolors = []
   
-  for j in range(0, n_clusters):
-    for i in range(len(labels)):
-        if labels[i] == j:
-        	dbcolors[i] = j + 1
+  for i in range(len(labels)):
+    dbcolors.append(labels[i] + 3)
   
   fig = plt.figure(figsize=(10, 5), dpi=100)
   if len(timeinyears) != len(mag):
     print "time length != mag length"  	
   plt.scatter(timeinyears, mag, c = labels)
   plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
-  plt.title("Earthquakes using DBSCAN")
+  plt.title("DBSCAN Earthquake Clustering")
   plt.ylabel("Magnitude")
   plt.xlabel("Year")
-  #plt.savefig(pp, format='pdf')
-  plt.show()
+  plt.savefig(pp, format='pdf')
+
   
   m = Basemap(width=abs(lon2 - lon1)*1000/lonperkm,height=abs(lat1 - lat2)*1000/latperkm,projection='lcc',resolution='h',lat_0=(lat1 + lat2)/2,lon_0=(lon1 + lon2)/2)
   clustersizes = []
@@ -209,66 +207,71 @@ def main():
     lontemp = []
     lattemp = []
     timetemp = []
-		magtemp = []
-		colortemp = []
-		for i in range(len(labels)):
-			if labels[i] == j:
-				lontemp.append(longitude[i])
-				lattemp.append(latitude[i])
-				timetemp.append(timeinyears[i])
-				magtemp.append(mag[i])
-				colortemp.append(j)
-		avgyear = np.mean(timetemp)
-		clustersizes.append(len(lontemp)) 
-		if (max(magtemp) > 4.5 or len(lontemp)>len(longitude)/(2*n_clusters)):
-			one_dim_plot_save(timetemp, magtemp, colortemp, pp)
-			two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)
-	 
-	#Recording the noise, just to see it 
-	
-	lontemp = []
-	lattemp = []
-	timetemp = []
-	magtemp = []
-	colortemp = [] 
-	for i in range(len(labels)):
-		if labels[i] == -1:
-			lontemp.append(longitude[i])
-			lattemp.append(latitude[i])
-			timetemp.append(timeinyears[i])
-			magtemp.append(mag[i])
-			colortemp.append(j)
-	avgyear = np.mean(timetemp)
-	
-	#Copied from one_dime_plot_save
-	fig = plt.figure(figsize=(10, 5), dpi=100)
-	if len(timeinyears) != len(mag):
-		print "time length != mag length"  	
-	plt.scatter(timeinyears, mag, c = colors)
-	plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
-	plt.title("DBSCAN Noise - unclustered quakes")
-	plt.ylabel("Magnitude")
-	plt.xlabel("Year")
-	plt.savefig(pp, format='pdf')
-	
-	
-	#Copied from two_dim_plot_save
-	avglon = np.mean(lontemp)
-	avglat = np.mean(lattemp)
-	m.drawcoastlines()
-	m.drawcountries()
-	m.drawstates()
-	m.fillcontinents(color='coral')
-	m.drawmapboundary()
+    magtemp = []
+    colortemp = []
+    for i in range(len(labels)):
+      if labels[i] == j:
+        lontemp.append(longitude[i])
+        lattemp.append(latitude[i])
+        timetemp.append(timeinyears[i])
+        magtemp.append(mag[i])
+        colortemp.append(j)
+    avgyear = np.mean(timetemp)
+    clustersizes.append(len(lontemp)) 
+    
+    #Bigger clusters get shown and saved
+    if (max(magtemp) > 4.5 or len(lontemp)>len(longitude)/(2*n_clusters)):
+      one_dim_plot_save(timetemp, magtemp, colortemp, pp)
+      two_dim_plot_save(lontemp, lattemp, magtemp, avgyear, m, pp)      
+      outfilename = "output_%s_%d.csv"%(filename[:-4], j)
+      with open(outfilename, 'wb') as csvfile:
+        writing = csv.writer(csvfile, delimiter = ',')
+        writing.writerow([xheader, latheader, lonheader, magheader])
+        for k in range(len(lontemp)):
+          writing.writerow([timetemp[k], lattemp[k], lontemp[k], magtemp[k]])
+            
+   
+  #Recording the noise, just to see it 
+  
+  lontemp = []
+  lattemp = []
+  timetemp = []
+  magtemp = []
+  colortemp = [] 
+  for i in range(len(labels)):
+    if labels[i] == -1:
+      lontemp.append(longitude[i])
+      lattemp.append(latitude[i])
+      timetemp.append(timeinyears[i])
+      magtemp.append(mag[i])
+      colortemp.append(0)
+  
+  
+  fig = plt.figure(figsize=(10, 5), dpi=100)
+  if len(timeinyears) != len(mag):
+    print "time length != mag length"   
+  plt.scatter(timetemp, magtemp, c = colortemp)
+  plt.gca().xaxis.set_major_formatter(ticker.ScalarFormatter(useOffset = False))
+  plt.title("DBSCAN Noise - unclustered quakes")
+  plt.savefig(pp, format='pdf')
+  
+  
+  #Copied from two_dim_plot_save
+  avglon = np.mean(lontemp)
+  avglat = np.mean(lattemp)
+  m.drawcoastlines()
+  m.drawcountries()
+  m.drawstates()
+  m.fillcontinents(color='coral')
+  m.drawmapboundary()
 
-	for i in range(len(lontemp)):
-		x, y = m(lontemp[i], lattemp[i])
-		m.plot(x, y, 'bo', alpha = .6, markersize = 3*magtemp[i])
-	plt.title("DBSCAN Noise - unclustered earthquakes")
-	plt.savefig(pp, format='pdf')
-	
-	#Close the file
-	pp.close()
+  for i in range(len(lontemp)):
+    x, y = m(lontemp[i], lattemp[i])
+    m.plot(x, y, 'bo', alpha = .6, markersize = 3*magtemp[i])
+  plt.title("DBSCAN Noise - unclustered earthquakes")
+  plt.savefig(pp, format='pdf') 
+  #Close the file
+  pp.close()
   
   
   

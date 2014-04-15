@@ -15,3 +15,13 @@ Earthquakes1LA - lat 33.932 long -117.917, radius 20km magnitude 2+ 1980-01-01 t
 Earthquakes2LA - same as Earthquakes1LA but restricted from 2005-01-01 to 2014-04-04
 
 Earthquakes3LA - same as Earthquakes2LA and 1LA but restricted to 5.5 magnitude quake in August 2008 and 2 years of data after that. 
+
+SoCal20002010.csv- lat 32.996 to 35.836 lon -121.84 to -115.402 mag 2+ 2000-01-01 to 2010-0101 big square centered on LA
+
+3DSoCal20002010 - same as SoCal20002010 but mag 2.6+ (data record for mag 2 to 2.5 looks wrong)
+
+3DSoCal19982002 - same as 3DSoCal20002010 but dates are 1998 to 2002; clear there's half an aftershock sequence starting at year 2000; go back in time to find the rest. 
+
+3DSFBay20002010 - lat 36.88 to 38.393, lon -123.27 to -121.06; mag 2+ 2000-01-01 to 2010-0101
+
+CentralAK20002010: 2000-01-01 to 2010-0101 lat 62.5 to 64.5, lon -148.5 to -146.5, mag 2.5+; chosen to see mag 7.8 in 2002
