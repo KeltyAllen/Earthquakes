@@ -103,6 +103,8 @@ def main():
   print "len(cluster_centers_indices is ", len(cluster_centers_indices)
   print "And len(data) is ", len(data)
   
+  one_dim_plot(timeinyears, mag, labels)
+  
   
   
   

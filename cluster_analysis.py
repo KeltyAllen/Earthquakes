@@ -9,7 +9,7 @@ from numpy import array
 from scipy.optimize import curve_fit
 
 def omori_utsu_total(x, c, k, p): #this is the integral of normal omori-utsu; gives total quakes by time t.
-	return -k/(p*(c + x)**(p-1))
+	return -(k)/(p*(c + x)**(p-1))
 	
 def gutenberg_richter(x, a, b): #gutenberg-richter law; predicts number of quakes that occur above given magnitude
   return 10**(a-b*x) 
@@ -76,7 +76,7 @@ def main():
  
   
   #print zip(oux, ouy)
-  popt,_ = curve_fit(omori_utsu_total, oux, ouy, [.0001, -400, 1])
+  popt,_ = curve_fit(omori_utsu_total, oux, ouy, [.0001, 1, 1])
   
   print "omori-utsu constants for ", filename, " are c, k, p = ", popt
  

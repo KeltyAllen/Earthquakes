@@ -10,7 +10,7 @@ from sklearn.cluster import KMeans
 #where radius is max distance from a centroid to an element in its cluster
 #assuming len(data) = len(colors)
 #k is number of clusters. I could figure this out from colors, but easier to pass it
-def kmeans_analysis(data, centroids, colors, k):
+def cluster_analysis(data, centroids, colors, k):
   hold = colors[0]
   centroidsmap = [] #holds the particular centroid closest to corresponding data entry
   radius = [0]*k #holds max radius
@@ -23,6 +23,15 @@ def kmeans_analysis(data, centroids, colors, k):
       radius[colors[i]] = dist[i]
 
   return sum(radius)/k
+  
+def diameter(data):
+	diam = 0
+	for m in range(len(data)):
+		for n in range(m, len(data)):
+			if euclidean(data[n], data[m]) > diam:
+				diam = euclidean(data[n], data[m])
+				
+	return diam
   
 #I don't really know how to pick preference, so I'm gonna play around with it like I did with kmeans  
 def afprop_analysis(data, centroids, colors):
@@ -47,7 +56,7 @@ def kcheck(data, kcheck):
     centroids = kmeans.cluster_centers_
     colors = kmeans.labels_
     #centroids,colors = kmeans2(data, k)
-    radiuscheck[k] = kmeans_analysis(data, centroids, colors, k)
+    radiuscheck[k] = cluster_analysis(data, centroids, colors, k)
     
     
   plt.plot(radiuscheck)
